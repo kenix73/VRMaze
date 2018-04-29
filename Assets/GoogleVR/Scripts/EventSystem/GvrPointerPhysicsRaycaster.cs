@@ -139,9 +139,10 @@ public class GvrPointerPhysicsRaycaster : GvrBasePointerRaycaster {
       Vector3 projection = Vector3.Project(hits[i].point - pointerRay.ray.origin, pointerRay.ray.direction);
       Vector3 hitPosition = projection + pointerRay.ray.origin;
       float resultDistance = hits[i].distance + pointerRay.distanceFromStart;
+      
 
       Transform pointerTransform =
-        GvrPointerInputModule.Pointer.PointerTransform;
+      GvrPointerInputModule.Pointer.PointerTransform;
       float delta = (hitPosition - pointerTransform.position).magnitude;
       if (delta < pointerRay.distanceFromStart) {
         continue;

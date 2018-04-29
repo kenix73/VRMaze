@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Door : MonoBehaviour 
 {
+    public bool isLocked = true;
+    private bool _opening = false;
     // Create a boolean value called "locked" that can be checked in OnDoorClicked() 
     // Create a boolean value called "opening" that can be checked in Update() 
 

@@ -249,6 +249,7 @@ PlayerSettings:
   - m_BuildTarget: Android
     m_Enabled: 1
     m_Devices:
+    - daydream
     - cardboard
   - m_BuildTarget: Metro
     m_Enabled: 0

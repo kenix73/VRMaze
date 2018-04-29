@@ -30,7 +30,8 @@ public class GvrReticlePointer : GvrBasePointer {
   // Minimum distance of the reticle (in meters).
   public const float RETICLE_DISTANCE_MIN = 0.45f;
   // Maximum distance of the reticle (in meters).
-  public const float RETICLE_DISTANCE_MAX = 10.0f;
+  // tkelly OVERRIDE default (public const float RETICLE_DISTANCE_MAX = 10.0f;
+  public float hitDistance = 30.0f;
 
   /// Number of segments making the reticle circle.
   public int reticleSegments = 20;
@@ -64,7 +65,7 @@ public class GvrReticlePointer : GvrBasePointer {
 
   public float ReticleOuterDiameter { get; private set; }
 
-  public override float MaxPointerDistance { get { return RETICLE_DISTANCE_MAX; } }
+  public override float MaxPointerDistance { get { return hitDistance; } }
 
   public override void OnPointerEnter(RaycastResult raycastResultResult, bool isInteractive) {
     SetPointerTarget(raycastResultResult.worldPosition, isInteractive);
@@ -75,7 +76,7 @@ public class GvrReticlePointer : GvrBasePointer {
   }
 
   public override void OnPointerExit(GameObject previousObject) {
-    ReticleDistanceInMeters = RETICLE_DISTANCE_MAX;
+    ReticleDistanceInMeters = hitDistance;
     ReticleInnerAngle = RETICLE_MIN_INNER_ANGLE;
     ReticleOuterAngle = RETICLE_MIN_OUTER_ANGLE;
   }
@@ -94,7 +95,7 @@ public class GvrReticlePointer : GvrBasePointer {
 
   public void UpdateDiameters() {
     ReticleDistanceInMeters =
-      Mathf.Clamp(ReticleDistanceInMeters, RETICLE_DISTANCE_MIN, RETICLE_DISTANCE_MAX);
+      Mathf.Clamp(ReticleDistanceInMeters, RETICLE_DISTANCE_MIN, hitDistance);
 
     if (ReticleInnerAngle < RETICLE_MIN_INNER_ANGLE) {
       ReticleInnerAngle = RETICLE_MIN_INNER_ANGLE;
@@ -149,7 +150,7 @@ public class GvrReticlePointer : GvrBasePointer {
     Vector3 targetLocalPosition = base.PointerTransform.InverseTransformPoint(target);
 
     ReticleDistanceInMeters =
-      Mathf.Clamp(targetLocalPosition.z, RETICLE_DISTANCE_MIN, RETICLE_DISTANCE_MAX);
+      Mathf.Clamp(targetLocalPosition.z, RETICLE_DISTANCE_MIN, hitDistance);
     if (interactive) {
       ReticleInnerAngle = RETICLE_MIN_INNER_ANGLE + RETICLE_GROWTH_ANGLE;
       ReticleOuterAngle = RETICLE_MIN_OUTER_ANGLE + RETICLE_GROWTH_ANGLE;
