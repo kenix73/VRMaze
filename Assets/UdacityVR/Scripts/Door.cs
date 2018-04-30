@@ -11,10 +11,26 @@ public class Door : MonoBehaviour
 
     void Update() {
         // If the door is opening and it is not fully raised
-            // Animate the door raising up
+        // Animate the door raising up
+        if (transform.position.y < 4.0f)
+        {
+            // keep moving up frame by frame.
+            transform.Translate();
+        }
+
     }
 
     public void OnDoorClicked() {
+        if (isLocked)
+        {
+            // play door locked sound -- don't open door.
+        }
+        else
+        {
+            _opening = true;
+
+        }
+        
         // If the door is clicked and unlocked
             // Set the "opening" boolean to true
         // (optionally) Else
@@ -23,6 +39,7 @@ public class Door : MonoBehaviour
 
     public void Unlock()
     {
+        isLocked = false;
         // You'll need to set "locked" to false here
     }
 }

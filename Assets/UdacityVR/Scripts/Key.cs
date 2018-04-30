@@ -15,6 +15,8 @@ public class Key : MonoBehaviour
 
 	public void OnKeyClicked()
 	{
+        Instantiate(keyPoofPrefab, transform.position, Quaternion.Euler(270, 0, 0));
+        DestroyObject(gameObject);
         // Instatiate the KeyPoof Prefab where this key is located
         // Make sure the poof animates vertically
         // Call the Unlock() method on the Door
