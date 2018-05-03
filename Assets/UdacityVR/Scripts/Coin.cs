@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour 
 {
-    public Transform poof_prefab;
+    public Transform poofPrefab;
+    public GameObject guardian;
     
     //Create a reference to the CoinPoofPrefab
 
@@ -12,8 +13,8 @@ public class Coin : MonoBehaviour
         // Instantiate the CoinPoof Prefab where this coin is located
         // Make sure the poof animates vertically
         // Destroy this coin. Check the Unity documentation on how to use Destroy
-
-        Instantiate(poof_prefab, transform.position, Quaternion.Euler(270,0,0));
+        Instantiate(poofPrefab, transform.position, Quaternion.Euler(270,0,0));
+        guardian.GetComponent<Guardian>().AddCoin();
         DestroyObject(gameObject);
 
     }
