@@ -6,8 +6,9 @@ This project is part of [Udacity](https://www.udacity.com "Udacity - Be in deman
 - Unity 2017.2.0f3
 - GVR Unity SDK v1.70.0
 
-##Assets
+## Assets
 Plank Textures PBR v1.0 https://assetstore.unity.com/packages/2d/textures-materials/wood/plank-textures-pbr-72318) [By: A Dog's Life Software]
 Dismounted Knight v3.0 (https://assetstore.unity.com/packages/3d/characters/humanoids/dismounted-knight-7263) [By: Mister Necturus]
 Plate Armor - Drop 4 (https://freesound.org/people/Samulis/sounds/209402/) [By: Samulis] (no changes) licensed under https://creativecommons.org/licenses/by/3.0/legalcode
 Key Pickup Sound (KeyPouch) (mine)
+Chest Opening (https://freesound.org/people/spookymodem/sounds/202092/) [By: spookymodem] licensed under CC0 1.0 Universal (CC0 1.0) mixed with my own composition.

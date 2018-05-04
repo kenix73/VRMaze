@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour {
     public Transform chestTop;
-    public Transform winAnimation;
     private bool _opening = false;
     // Use this for initialization
     
     public void OpenChest()
     {
         _opening = true;
+        AudioSource chestSound = GetComponent<AudioSource>();
+        chestSound.PlayOneShot(chestSound.clip);
+
     }
     private void Update()
     {
